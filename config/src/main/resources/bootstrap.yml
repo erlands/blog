@@ -1,0 +1,19 @@
+spring:
+  application:
+    name: config-service
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/erlands/config
+          username: erlands
+          password: a1234543210-
+          search-paths: client
+      label: master
+eureka:
+  client:
+    service-url:
+      defaultZone: http://172.31.64.116:8081/eureka
+  instance:
+    prefer-ip-address: true
+    ip-address: 47.105.97.194

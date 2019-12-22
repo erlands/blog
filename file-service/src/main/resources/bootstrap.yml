@@ -1,0 +1,22 @@
+spring:
+  application:
+    name: file-service
+  profiles:
+    active: dev
+  cloud:
+    config:
+      name: config-client
+      label: master
+      discovery:
+        enabled: true
+        service-id: config-service
+      profile: dev
+server:
+  port: 8083
+eureka:
+  client:
+    service-url:
+      defaultZone: http://47.105.97.194:8081/eureka/
+  instance:
+    prefer-ip-address: true
+    ip-address: 118.190.210.159
