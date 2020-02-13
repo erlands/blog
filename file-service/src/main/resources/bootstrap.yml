@@ -1,6 +1,10 @@
 spring:
   application:
     name: file-service
+  servlet:
+    multipart:
+      max-file-size: 20MB
+      max-request-size: 20MB
   profiles:
     active: dev
   cloud:
@@ -20,3 +24,12 @@ eureka:
   instance:
     prefer-ip-address: true
     ip-address: 118.190.210.159
+fdfs:
+  so-timeout: 1501
+  connect-timeout: 601
+  thumb-image:
+    width: 150
+    height: 150
+  tracker-list:
+    - 118.190.210.159:22122
+  web-server-url: http://r.tohsaka.top/

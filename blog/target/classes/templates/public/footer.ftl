@@ -20,8 +20,9 @@
                         <a href="http://github.com/JamesZBL/FS-Blog" target="_blank" class="text-white">Github 项目</a>
                     </li>-->
                 </ul>
-                <#--<p class="text-muted small mb-4 mb-lg-0">&copy; JamesZBL 2017-2018 All Rights Reserved. </p>
-                <p class="text-muted small mb-4 mb-lg-0">冀 ICP 备 18000182 号</p>-->
+                <#--<p class="text-muted small mb-4 mb-lg-0">&copy; erlands 2020-2018 All Rights Reserved. </p>-->
+                <p class="text-muted small mb-4 mb-lg-0">鄂 ICP 备 20000576 号</p>
+
             </div>
             <div class="col-lg-6 text-center text-lg-right my-auto">
                 <ul class="list-inline mb-0">

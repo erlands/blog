@@ -12,6 +12,7 @@
     <version>0.0.1-SNAPSHOT</version>
     <name>file-service</name>
     <description>Demo project for Spring Boot</description>
+    <packaging>jar</packaging>
 
     <properties>
         <java.version>1.8</java.version>
@@ -21,14 +22,6 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
-        </dependency>
-
-        <dependency>
-            <groupId>fastdfs-client-java</groupId>
-            <artifactId>org.csource</artifactId>
-           <version>1.27</version>
-            <scope>system</scope>
-            <systemPath>${basedir}/libs/fastdfs-client-java-1.27-SNAPSHOT.jar</systemPath>
         </dependency>
 
         <dependency>
@@ -42,6 +35,12 @@
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-config</artifactId>
             <version>2.2.0.RELEASE</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.github.tobato</groupId>
+            <artifactId>fastdfs-client</artifactId>
+            <version>1.26.6</version>
         </dependency>
 
 
