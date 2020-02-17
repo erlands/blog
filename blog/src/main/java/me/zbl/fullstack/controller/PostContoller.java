@@ -8,11 +8,13 @@ import me.zbl.fullstack.entity.dto.form.ArticleSearchForm;
 import me.zbl.fullstack.service.api.IAdminBlogService;
 import me.zbl.fullstack.service.api.IPostsService;
 import me.zbl.fullstack.service.api.ITagService;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.List;
@@ -70,6 +72,17 @@ public class PostContoller extends BaseController {
     return "article";
   }
 
+  @GetMapping("/article/{id}")
+  @ResponseBody
+  public PostView article(@PathVariable("id") Integer id){
+    if(id != null){
+      Article article = mBlogService.blogSelectByPrimaryKey(id);
+      if(article != null){
+        return new PostView(article);
+      }
+    }
+    return null;
+  }
   /**
    * 文章搜索结果页
    * <p>
@@ -85,5 +98,25 @@ public class PostContoller extends BaseController {
     List<TagView> tagViewList = mTagService.getAllTagView();
     addModelAtt(model, VIEW_TAGLIST, tagViewList);
     return "posts";
+  }
+
+  @GetMapping("/tag/list")
+  @ResponseBody
+  public List<TagView> tagList(){
+    return mTagService.getAllTagView();
+  }
+
+  @GetMapping("/post/list")
+  @ResponseBody
+  public List<PostView> list(ArticleSearchForm form){
+    if(StringUtils.isBlank(form.getName())){
+      if(form.getTagId() != null){
+        return mPostService.getPostListByTagId(form.getTagId());
+      }else{
+        return mPostService.getPostList();
+      }
+    }else{
+      return mPostService.getPostListByArticleCondition(form);
+    }
   }
 }

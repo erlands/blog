@@ -20,6 +20,10 @@ public class ArticleSearchForm {
   /**
    * 文章标题
    */
-  @NotEmpty
   private String name;
+
+  /**
+   * 标签id
+   */
+  private Integer tagId;
 }
